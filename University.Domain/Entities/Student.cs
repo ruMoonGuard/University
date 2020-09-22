@@ -69,11 +69,16 @@ namespace University.Domain.Entities
             StudentGroup.Add(studentGroup);
         }
 
-        public void RemoveFromGroup(Group group)
+        public void RemoveFromGroup(Guid groupId)
         {
-            //StudentGroup.FirstOrDefault()
+            var studentGroup = StudentGroup.FirstOrDefault(m => m.GroupId == groupId);
 
-            //StudentGroup.Remove()
+            if(studentGroup == null)
+            {
+                throw new ArgumentException($"The studentId {Id} have not a groupId {groupId}");
+            }
+
+            StudentGroup.Remove(studentGroup);
         }
     }
 }
