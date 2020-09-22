@@ -2,10 +2,11 @@
 using Moq;
 using System;
 using System.Threading.Tasks;
+using University.Appication.Test.Helpers;
 using University.Application.Commands.ChangeStudentFIO;
+using University.Application.Exceptions;
+using University.Application.Interfaces.Repositories;
 using University.Domain.Entities;
-using University.Domain.Exceptions;
-using University.Domain.Interfaces;
 using Xunit;
 
 namespace University.Appication.Test
@@ -20,9 +21,11 @@ namespace University.Appication.Test
         }
 
         [Theory, AutoData]
-        public async Task ChangeFIOForStudentCommand_ChangeFIO_Successfully(ChangeStudentFIOCommand command, Student student)
+        public async Task ChangeFIOForStudentCommand_ChangeFIO_Successfully(ChangeStudentFIOCommand command)
         {
             // Arrange
+            var student = StudentFactory.CorrectStudent();
+
             _mockStudentRepository
                 .Setup(m => m.GetByIdAsync(It.IsAny<Guid>()))
                 .ReturnsAsync(student);
@@ -61,9 +64,12 @@ namespace University.Appication.Test
             await Assert.ThrowsAsync<ObjectNotFoundException>(action);
         }
 
-        [Theory, AutoData]
-        public async Task ChangeFIOForStudentCommand_ChangeFIOWhenFirstNameEmpty_ThrowArgumentNullException(Student student)
+        [Fact]
+        public async Task ChangeFIOForStudentCommand_ChangeFIOWhenFirstNameEmpty_ThrowArgumentNullException()
         {
+            // Arrange
+            var student = StudentFactory.CorrectStudent();
+
             _mockStudentRepository
                 .Setup(m => m.GetByIdAsync(It.IsAny<Guid>()))
                 .ReturnsAsync(student);
@@ -82,9 +88,12 @@ namespace University.Appication.Test
             await Assert.ThrowsAsync<ArgumentNullException>(action);
         }
 
-        [Theory, AutoData]
-        public async Task ChangeFIOForStudentCommand_ChangeFIOWhenLastNameEmpty_ThrowArgumentNullException(Student student)
+        [Fact]
+        public async Task ChangeFIOForStudentCommand_ChangeFIOWhenLastNameEmpty_ThrowArgumentNullException()
         {
+            // Arrange
+            var student = StudentFactory.CorrectStudent();
+
             _mockStudentRepository
                 .Setup(m => m.GetByIdAsync(It.IsAny<Guid>()))
                 .ReturnsAsync(student);

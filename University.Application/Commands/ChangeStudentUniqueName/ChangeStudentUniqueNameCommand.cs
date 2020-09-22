@@ -11,7 +11,7 @@ namespace University.Application.Commands.ChangeStudentUniqueName
             UniqueName = name;
         }
 
-        public Guid Id { get; set; }
-        public string UniqueName { get; private set; }
+        public Guid Id { get; }
+        public string UniqueName { get; }
     }
 }

@@ -13,7 +13,16 @@ namespace University.Domain.Entities
             FirstName = !string.IsNullOrEmpty(firstName) ? firstName : throw new ArgumentNullException($"{nameof(FirstName)} cannot be empty"); 
             LastName = !string.IsNullOrEmpty(lastName) ? firstName : throw new ArgumentNullException($"{nameof(FirstName)} cannot be empty");
             MiddleName = middleName;
+
+            if (!string.IsNullOrEmpty(uniqueName))
+            {
+                UniqueName = uniqueName.Length >= 6 && uniqueName.Length <= 16
+                    ? uniqueName
+                    : throw new ArgumentException($"{nameof(UniqueName)} field must be between 6 and 16 in length! Current: {uniqueName.Length}");
+            }
+
             UniqueName = uniqueName;
+            
 
             StudentGroup = new List<StudentGroup>();
         }
@@ -23,6 +32,7 @@ namespace University.Domain.Entities
         public string FirstName { get; private set; }
         public string MiddleName { get; private set; }
         public string LastName { get; private set; }
+        
         public string UniqueName { get; private set; }
 
         public List<StudentGroup> StudentGroup { get; private set; }
@@ -36,7 +46,14 @@ namespace University.Domain.Entities
 
         public void ChangeUniqueName(string name)
         {
-            UniqueName = name;
+            // Есть дублирование правил проверки, можно вынести в private set, но тогда необходимо будет вместо автопроперти определять обычные проперти
+            // Часто при rich моделях выбирают вариант с дублированием в методах, которые изменяют само состояние модели
+            if (!string.IsNullOrEmpty(name))
+            {
+                UniqueName = name.Length >= 6 && name.Length <= 16
+                    ? name
+                    : throw new ArgumentException($"{nameof(UniqueName)} field must be between 6 and 16 in length! Current: {name.Length}");
+            }
         }
     }
 }

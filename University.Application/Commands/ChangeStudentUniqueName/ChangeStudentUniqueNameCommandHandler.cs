@@ -1,8 +1,8 @@
 ﻿using MediatR;
 using System.Threading;
 using System.Threading.Tasks;
-using University.Domain.Exceptions;
-using University.Domain.Interfaces;
+using University.Application.Exceptions;
+using University.Application.Interfaces.Repositories;
 
 namespace University.Application.Commands.ChangeStudentUniqueName
 {

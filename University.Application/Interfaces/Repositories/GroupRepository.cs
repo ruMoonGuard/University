@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using University.Domain.Entities;
 
-namespace University.Domain.Interfaces
+namespace University.Application.Interfaces.Repositories
 {
     public interface IGroupRepository
     {

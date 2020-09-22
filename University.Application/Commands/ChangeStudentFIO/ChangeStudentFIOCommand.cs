@@ -13,9 +13,9 @@ namespace University.Application.Commands.ChangeStudentFIO
             MiddleName = middleName;
         }
 
-        public Guid Id { get; private set; }
-        public string FirstName { get; private set; }
-        public string LastName { get; private set; }
-        public string MiddleName { get; private set; }
+        public Guid Id { get; }
+        public string FirstName { get; }
+        public string LastName { get; }
+        public string MiddleName { get; }
     }
 }

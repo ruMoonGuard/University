@@ -2,8 +2,8 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
+using University.Application.Interfaces.Repositories;
 using University.Domain.Entities;
-using University.Domain.Interfaces;
 
 namespace University.Application.Commands.CreateGroup
 {

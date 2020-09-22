@@ -1,13 +1,11 @@
 ﻿using AutoFixture.Xunit2;
 using Moq;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 using University.Application.Commands.ChangeGroupName;
+using University.Application.Exceptions;
+using University.Application.Interfaces.Repositories;
 using University.Domain.Entities;
-using University.Domain.Exceptions;
-using University.Domain.Interfaces;
 using Xunit;
 
 namespace University.Appication.Test

@@ -3,10 +3,11 @@ using Moq;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
+using University.Appication.Test.Helpers;
 using University.Application.Commands.CreateStudent;
+using University.Application.Exceptions;
+using University.Application.Interfaces.Repositories;
 using University.Domain.Entities;
-using University.Domain.Exceptions;
-using University.Domain.Interfaces;
 using Xunit;
 
 namespace University.Appication.Test
@@ -20,10 +21,13 @@ namespace University.Appication.Test
             _mockStudentRepository = new Mock<IStudentRepository>();
         }
 
-        [Theory, AutoData]
-        public async Task CreateStudentCommand_CreatesStudent_Successfully(CreateStudentCommand command)
+        [Fact]
+        public async Task CreateStudentCommand_CreatesStudent_Successfully()
         {
             // Arrange
+            var student = StudentFactory.CorrectStudent();
+            var command = new CreateStudentCommand(student.Gender, student.LastName, student.FirstName, student.MiddleName, student.UniqueName);
+
             _mockStudentRepository
                 .Setup(m => m.IsExistByUniqueNameAsync(It.IsAny<string>()))
                 .ReturnsAsync(false);
@@ -41,10 +45,13 @@ namespace University.Appication.Test
             _mockStudentRepository.Verify(m => m.AddAsync(It.IsAny<Student>()), Times.Once());
         }
 
-        [Theory, AutoData]
-        public async Task CreateStudentCommand_CreatesStudentWithUniqueName_Successfully(CreateStudentCommand command)
+        [Fact]
+        public async Task CreateStudentCommand_CreatesStudentWithUniqueName_Successfully()
         {
             // Arrange
+            var student = StudentFactory.CorrectStudent();
+            var command = new CreateStudentCommand(student.Gender, student.LastName, student.FirstName, student.MiddleName, student.UniqueName);
+
             _mockStudentRepository
                 .Setup(m => m.IsExistByUniqueNameAsync(command.UniqueName))
                 .ReturnsAsync(false);

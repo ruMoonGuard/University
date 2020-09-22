@@ -11,7 +11,7 @@ namespace University.Application.Commands.ChangeGroupName
             UpdateName = updateName;
         }
 
-        public Guid Id { get; private set; }
-        public string UpdateName { get; private set; }
+        public Guid Id { get; }
+        public string UpdateName { get; }
     }
 }

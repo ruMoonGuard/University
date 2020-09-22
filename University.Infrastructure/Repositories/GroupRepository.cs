@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
+using University.Application.Interfaces.Repositories;
 using University.Domain.Entities;
-using University.Domain.Interfaces;
 
 namespace University.Infrastructure.Data.Repositories
 {

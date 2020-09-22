@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace University.Domain.Exceptions
+namespace University.Application.Exceptions
 {
     public class ObjectNotFoundException : Exception
     {

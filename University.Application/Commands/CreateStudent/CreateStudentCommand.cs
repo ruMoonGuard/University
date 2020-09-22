@@ -15,10 +15,10 @@ namespace University.Application.Commands.CreateStudent
             UniqueName = uniqueName;
         }
 
-        public Gender Gender { get; private set; }
-        public string FirstName { get; private set; }
-        public string MiddleName { get; private set; }
-        public string LastName { get; private set; }
-        public string UniqueName { get; private set; }
+        public Gender Gender { get; }
+        public string FirstName { get; }
+        public string MiddleName { get; }
+        public string LastName { get; }
+        public string UniqueName { get; }
     }
 }

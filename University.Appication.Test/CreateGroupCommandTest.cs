@@ -3,8 +3,8 @@ using Moq;
 using System;
 using System.Threading.Tasks;
 using University.Application.Commands.CreateGroup;
+using University.Application.Interfaces.Repositories;
 using University.Domain.Entities;
-using University.Domain.Interfaces;
 using Xunit;
 
 namespace University.Appication.Test

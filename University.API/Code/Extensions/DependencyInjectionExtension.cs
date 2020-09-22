@@ -2,7 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 using University.Application.Commands.CreateStudent;
-using University.Domain.Interfaces;
+using University.Application.Interfaces.Repositories;
 using University.Infrastructure.Data.Repositories;
 
 namespace University.API.Code.Extensions
