@@ -17,7 +17,7 @@ namespace University.Application.Commands.ChangeGroupName
 
         public async Task<Unit> Handle(ChangeGroupNameCommand request, CancellationToken cancellationToken)
         {
-            var group = await _groupRepository.FindByIdAsync(request.Id);
+            var group = await _groupRepository.GetByIdAsync(request.Id);
 
             if(group == null)
             {

@@ -24,7 +24,7 @@ namespace University.Appication.Test
         {
             // Arrange
             _mockGroupRepository
-                .Setup(m => m.FindByIdAsync(It.IsAny<Guid>()))
+                .Setup(m => m.GetByIdAsync(It.IsAny<Guid>()))
                 .ReturnsAsync(group);
 
             _mockGroupRepository
@@ -44,7 +44,7 @@ namespace University.Appication.Test
         {
             // Arrange
             _mockGroupRepository
-                .Setup(m => m.FindByIdAsync(It.IsAny<Guid>()))
+                .Setup(m => m.GetByIdAsync(It.IsAny<Guid>()))
                 .ReturnsAsync(group);
 
             _mockGroupRepository
@@ -65,7 +65,7 @@ namespace University.Appication.Test
         {
             // Arrange
             _mockGroupRepository
-                .Setup(m => m.FindByIdAsync(It.IsAny<Guid>()))
+                .Setup(m => m.GetByIdAsync(It.IsAny<Guid>()))
                 .ReturnsAsync((Group)null);
 
             _mockGroupRepository

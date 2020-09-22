@@ -1,10 +1,7 @@
-﻿using AutoFixture;
-using AutoFixture.Xunit2;
+﻿using AutoFixture.Xunit2;
 using Moq;
 using System;
-using System.Reflection.Metadata;
 using System.Threading.Tasks;
-using University.Appication.Test.Builders;
 using University.Appication.Test.Helpers;
 using University.Application.Commands.ChangeStudentUniqueName;
 using University.Application.Exceptions;

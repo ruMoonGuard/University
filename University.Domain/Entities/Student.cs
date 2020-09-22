@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using University.Domain.Entities.Enums;
 
 namespace University.Domain.Entities
@@ -54,6 +55,25 @@ namespace University.Domain.Entities
                     ? name
                     : throw new ArgumentException($"{nameof(UniqueName)} field must be between 6 and 16 in length! Current: {name.Length}");
             }
+        }
+
+        public void AddGroup(Group group)
+        {
+            var studentGroup = new StudentGroup(this, group);
+
+            if(StudentGroup.Any(m => m.GroupId == group.Id))
+            {
+                throw new ArgumentException($"The studentId {Id} is already a member of this groupId {group.Id}");
+            }
+
+            StudentGroup.Add(studentGroup);
+        }
+
+        public void RemoveFromGroup(Group group)
+        {
+            //StudentGroup.FirstOrDefault()
+
+            //StudentGroup.Remove()
         }
     }
 }

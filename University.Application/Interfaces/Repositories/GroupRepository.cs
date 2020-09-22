@@ -6,7 +6,7 @@ namespace University.Application.Interfaces.Repositories
 {
     public interface IGroupRepository
     {
-        Task<Group> FindByIdAsync(Guid id);
+        Task<Group> GetByIdAsync(Guid id);
         Task<Guid> AddAsync(Group group);
         Task UpdateAsync(Group group);
     }

@@ -12,7 +12,7 @@ namespace University.Infrastructure.Data.Repositories
             throw new NotImplementedException();
         }
 
-        public Task<Group> FindByIdAsync(Guid id)
+        public Task<Group> GetByIdAsync(Guid id)
         {
             throw new NotImplementedException();
         }
