@@ -7,6 +7,9 @@ namespace University.Domain.Entities
 {
     public class Student
     {
+        // for ef core
+        private Student() { }
+
         public Student(Guid id, Gender gender, string firstName, string lastName, string middleName = null, string uniqueName = null)
         {
             Id = id;

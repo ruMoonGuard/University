@@ -4,6 +4,9 @@ namespace University.Domain.Entities
 {
     public class StudentGroup
     {
+        // for ef core
+        private StudentGroup() { }
+
         public StudentGroup(Student student, Group group)
         {
             if(student == null)

@@ -5,6 +5,9 @@ namespace University.Domain.Entities
 {
     public class Group
     {
+        // for ef core
+        private Group() { }
+
         public Group(Guid id, string name)
         {
             Id = id != Guid.Empty 

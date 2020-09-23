@@ -10,5 +10,6 @@ namespace University.Application.Interfaces.Repositories
         Task<bool> IsExistByUniqueNameAsync(string name);
         Task<Guid> AddAsync(Student student);
         Task UpdateAsync(Student student);
+        Task RemoveAsync(Guid id);
     }
 }
