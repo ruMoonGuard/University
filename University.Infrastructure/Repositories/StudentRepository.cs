@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Threading.Tasks;
 using University.Application.Interfaces.Repositories;
 using University.Domain.Entities;
@@ -7,24 +8,37 @@ namespace University.Infrastructure.Data.Repositories
 {
     public class StudentRepository : IStudentRepository
     {
-        public Task<Guid> AddAsync(Student student)
+        private readonly UniversityContext _context;
+
+        public StudentRepository(UniversityContext context)
         {
-            throw new NotImplementedException();
+            _context = context;
         }
 
-        public Task<Student> GetByIdAsync(Guid id)
+        public async Task<Guid> AddAsync(Student student)
         {
-            throw new NotImplementedException();
+            _context.Students.Add(student);
+            await _context.SaveChangesAsync();
+
+            return student.Id;
         }
 
-        public Task<bool> IsExistByUniqueNameAsync(string name)
+        public async Task<Student> GetByIdAsync(Guid id) =>
+            await _context.Students.FirstOrDefaultAsync(s => s.Id == id);
+
+        public async Task<bool> IsExistByUniqueNameAsync(string name) =>
+            await _context.Students.AllAsync(s => s.UniqueName == name);
+
+        public async Task RemoveAsync(Student student)
         {
-            throw new NotImplementedException();
+            _context.Students.Remove(student);
+            await _context.SaveChangesAsync();
         }
 
-        public Task UpdateAsync(Student student)
+        public async Task UpdateAsync(Student student)
         {
-            throw new NotImplementedException();
+            _context.Students.Update(student);
+            await _context.SaveChangesAsync();
         }
     }
 }

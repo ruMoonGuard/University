@@ -23,7 +23,7 @@ namespace University.Application.Commands.RemoveStudent
                 throw new ObjectNotFoundException($"Student with id {request.StudentId} not found");
             }
 
-            await _studentRepository.RemoveAsync(student.Id);
+            await _studentRepository.RemoveAsync(student);
 
             return Unit.Value;
         }

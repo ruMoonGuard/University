@@ -9,6 +9,6 @@ namespace University.Application.Interfaces.Repositories
         Task<Group> GetByIdAsync(Guid id);
         Task<Guid> AddAsync(Group group);
         Task UpdateAsync(Group group);
-        Task RemoveAsync(Guid id);
+        Task RemoveAsync(Group group);
     }
 }

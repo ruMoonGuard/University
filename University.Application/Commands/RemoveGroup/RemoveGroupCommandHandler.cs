@@ -23,7 +23,7 @@ namespace University.Application.Commands.RemoveGroup
                 throw new ObjectNotFoundException($"Group with id {request.GroupId} not found");
             }
 
-            await _groupRepository.RemoveAsync(group.Id);
+            await _groupRepository.RemoveAsync(group);
 
             return Unit.Value;
         }
